@@ -1,0 +1,10 @@
+.idea/
+__pycache__/
+.DS_Store
+/html/
+build/
+dist/
+pyutmodelv2.egg-info/
+/pyenv-3.11.5/
+.envrc
+.python-version
