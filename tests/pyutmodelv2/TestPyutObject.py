@@ -52,7 +52,6 @@ class TestPyutObject(TestBase):
 
         self.assertEqual(expectedLength, actualLength, 'Our name appears to have NOT been used')
 
-
     def testHowIdsIncrement(self):
 
         pyutObject1: PyutObject = PyutObject(name='pyutObject1')

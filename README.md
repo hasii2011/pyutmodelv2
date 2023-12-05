@@ -5,8 +5,9 @@
 [![PyPI version](https://badge.fury.io/py/pyutmodel.svg)](https://badge.fury.io/py/pyutmodel)
 
 
-𝓟 𝓨 𝓤 𝓣 stands for Python UML Tool. This is the external data model for Pyut
-that allows for external plugin development
+𝓟 𝓨 𝓤 𝓣 stands for Python UML Tool. This is the second version external data model for Pyut
+that allows for external plugin development.  This version relies on Python's data classes thus 
+removing lots of boilerplate code as well as "java" idiom code.
 
 ## Developer Notes
 This project uses [buildlackey](https://github.com/hasii2011/buildlackey) for day to day development builds
@@ -16,7 +17,7 @@ ___
 ## Note
 For all kind of problems, requests, enhancements, bug reports, etc.,
 please drop me an e-mail.
-Written by <a href="mailto:email@humberto.a.sanchez.ii@gmail.com?subject=Hello Humberto">Humberto A. Sanchez II</a>  (C) 2023
+Written by <a href="mailto:email@humberto.a.sanchez.ii@gmail.com?subject=Hello Humberto">Humberto A. Sanchez II</a>  (C) 2024
 
 
 
