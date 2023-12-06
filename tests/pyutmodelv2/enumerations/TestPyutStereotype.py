@@ -48,6 +48,22 @@ class TestPyutStereotype(ProjectTestBase):
 
         self.assertEqual(PyutStereotype.NO_STEREOTYPE, pyutStereotype, 'Empty string conversion failing')
 
+    def testInvalidStereotypeCoercionToNoStereotype(self):
+
+        pyutStereotype: PyutStereotype = PyutStereotype.toEnum('dataclass')
+
+        self.assertEqual(PyutStereotype.NO_STEREOTYPE, pyutStereotype, 'Coerced to empty')
+
+    def testUpperCaseValidValue(self):
+        pyutStereotype: PyutStereotype = PyutStereotype.toEnum('SPECIFICATION')
+
+        self.assertEqual(PyutStereotype.SPECIFICATION, pyutStereotype, 'Coerced to empty')
+
+    def testNodeTypeEnum(self):
+        pyutStereotype: PyutStereotype = PyutStereotype.toEnum('NODE type')
+
+        self.assertEqual(PyutStereotype.NODE_TYPE, pyutStereotype, 'Coerced to empty')
+
 
 def suite() -> TestSuite:
     """You need to change the name of the test class here also."""

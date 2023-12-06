@@ -22,6 +22,7 @@ class PyutStereotype(Enum):
     LIBRARY              = 'library'
     METACLASS            = 'metaclass'
     NODE_TYPE            = 'node type'
+    # noinspection SpellCheckingInspection
     POWER_TYPE           = 'powertype'
     REALIZATION          = 'realization'
     SCRIPT               = 'script'
@@ -42,33 +43,28 @@ class PyutStereotype(Enum):
         Args:
             strValue:   A string value
 
-        Returns:  The stereotype enumeration;  Empty strings, multi-spaces strings, & None
-        values return PyutStereotype.NO_STEREOTYPE
+        Returns:  The stereotype enumeration;  Empty strings, multi-spaces strings,
+        invalid & None values return PyutStereotype.NO_STEREOTYPE
         """
-        stereotype:   PyutStereotype = PyutStereotype.NO_STEREOTYPE
-        if strValue is None:
-            canonicalStr: str = ''  # Force None
-        else:
-            canonicalStr = strValue.strip(' ')  # I want exact match
 
-        match canonicalStr:
-            case PyutStereotype.AUXILIARY.value:
-                stereotype = PyutStereotype.AUXILIARY
-            case PyutStereotype.FOCUS.value:
-                stereotype = PyutStereotype.FOCUS
-            case PyutStereotype.IMPLEMENTATION_CLASS.value:
-                stereotype = PyutStereotype.IMPLEMENTATION_CLASS
-            case PyutStereotype.METACLASS.value:
-                stereotype = PyutStereotype.METACLASS
-            case PyutStereotype.TYPE.value:
-                stereotype = PyutStereotype.TYPE
-            case PyutStereotype.UTILITY.value:
-                stereotype = PyutStereotype.UTILITY
-            case PyutStereotype.NO_STEREOTYPE.value:
-                stereotype = PyutStereotype.NO_STEREOTYPE
-            case '':
-                stereotype = PyutStereotype.NO_STEREOTYPE
-            case _:
-                print(f'Warning: did not recognize this  stereotype string: `{canonicalStr}`')
+        if strValue is None:
+            canonicalStr: str = ''  # Force to no stereotype
+        else:
+            canonicalStr = strValue.strip(' ').lower()
+
+        try:
+            # noinspection SpellCheckingInspection
+            match canonicalStr:
+                case 'buildcomponent':
+                    stereotype: PyutStereotype = PyutStereotype.BUILD_COMPONENT
+                case 'implementationclass':
+                    stereotype = PyutStereotype.IMPLEMENTATION_CLASS
+                case 'nostereotype':
+                    stereotype = PyutStereotype.NO_STEREOTYPE
+                case _:
+                    stereotype = PyutStereotype(canonicalStr)
+        except (ValueError, Exception):
+            print(f'`{canonicalStr}` coerced to {PyutStereotype.NO_STEREOTYPE}')
+            stereotype = PyutStereotype.NO_STEREOTYPE
 
         return stereotype
