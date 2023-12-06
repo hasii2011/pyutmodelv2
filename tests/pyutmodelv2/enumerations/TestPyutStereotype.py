@@ -4,11 +4,12 @@ from typing import cast
 from unittest import TestSuite
 from unittest import main as unitTestMain
 
-from enumerations.PyutStereotype import PyutStereotype
-from tests.TestBase import TestBase
+from pyutmodelv2.enumerations.PyutStereotype import PyutStereotype
+
+from tests.ProjectTestBase import ProjectTestBase
 
 
-class TestPyutStereotype(TestBase):
+class TestPyutStereotype(ProjectTestBase):
     """
     """
     def setUp(self):
@@ -46,6 +47,7 @@ class TestPyutStereotype(TestBase):
         pyutStereotype: PyutStereotype = PyutStereotype.toEnum('    ')
 
         self.assertEqual(PyutStereotype.NO_STEREOTYPE, pyutStereotype, 'Empty string conversion failing')
+
 
 def suite() -> TestSuite:
     """You need to change the name of the test class here also."""

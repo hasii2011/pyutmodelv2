@@ -26,34 +26,17 @@
             "level": "INFO",
             "propagate": "False"
         },
-        "hasiihelper.UnitTestBase": {
+        "pyutmodelv2": {
             "level":     "WARNING",
             "propagate": "False"
         },
-        "pyutmodel": {
-            "level":     "WARNING",
-            "propagate": "False"
-        },
-        "pyutmodel.datamodel": {
+        "tests.pyutmodelv2": {
             "level":     "INFO",
             "propagate": "False"
         },
-        "pyutmodel.graphicalmodel": {
-            "level":     "WARNING",
-            "propagate": "False"
-        },
-        "tests.pyutmodel": {
-            "level":     "WARNING",
-            "propagate": "False"
-        },
-        "tests.pyutmodel.datamodel": {
+        "codeallybasic.UnitTestBase": {
             "level":     "INFO",
-            "propagate": "False"
-        },
-        "tests.pyutmodel.graphicalmodel": {
-            "level":     "WARNING",
             "propagate": "False"
         }
-
     }
 }

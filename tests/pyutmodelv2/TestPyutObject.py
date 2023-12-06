@@ -5,10 +5,10 @@ from unittest import main as unitTestMain
 from pyutmodelv2.PyutObject import PyutObject
 from pyutmodelv2.PyutObject import infiniteSequence
 
-from tests.TestBase import TestBase
+from tests.ProjectTestBase import ProjectTestBase
 
 
-class TestPyutObject(TestBase):
+class TestPyutObject(ProjectTestBase):
     """
     """
     def setUp(self):
