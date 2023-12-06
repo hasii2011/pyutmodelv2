@@ -25,4 +25,4 @@ jobs:
       - run:
             name: run tests
             command: | 
-              unittests -s src
+              unittests

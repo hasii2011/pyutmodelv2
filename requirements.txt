@@ -10,6 +10,6 @@ types-setuptools==69.0.0.0
 typing_extensions==4.8.0
 Deprecated==1.2.14
 
-buildlackey==1.6.1
+buildlackey==1.6.2
 
 codeallybasic==0.5.2
