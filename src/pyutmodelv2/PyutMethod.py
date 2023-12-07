@@ -9,7 +9,6 @@ from pyutmodelv2.PyutModifier import PyutModifier
 from pyutmodelv2.PyutParameter import PyutParameter
 from pyutmodelv2.PyutType import PyutType
 
-from pyutmodelv2.enumerations.PyutDisplayParameters import PyutDisplayParameters
 from pyutmodelv2.enumerations.PyutVisibility import PyutVisibility
 
 from pyutmodelv2.PyutObject import PyutObject
@@ -116,3 +115,6 @@ class PyutMethod(PyutObject):
             f'{self.sourceCode}'
         )
         return internalRepresentation
+
+
+PyutMethods  = NewType('PyutMethods', List[PyutMethod])

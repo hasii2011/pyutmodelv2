@@ -3,10 +3,10 @@ from dataclasses import dataclass
 from dataclasses import field
 
 from pyutmodelv2.PyutField import PyutField
-from pyutmodelv2.PyutMethod import PyutMethod
+from pyutmodelv2.PyutField import PyutFields
 
-from pyutmodelv2.PyutModelTypes import PyutMethods
-from pyutmodelv2.PyutModelTypes import PyutFields
+from pyutmodelv2.PyutMethod import PyutMethod
+from pyutmodelv2.PyutMethod import PyutMethods
 
 
 def methodsFactory() -> PyutMethods:

@@ -1,4 +1,7 @@
 
+from typing import List
+from typing import NewType
+
 from pyutmodelv2.PyutParameter import PyutParameter
 from pyutmodelv2.PyutType import PyutType
 
@@ -44,3 +47,6 @@ class PyutField(PyutParameter):
 
     def __repr__(self):
         return self.__str__()
+
+
+PyutFields   = NewType('PyutFields',  List[PyutField])
