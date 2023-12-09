@@ -28,9 +28,6 @@ class PyutClassCommon:
     fields:      PyutFields  = field(default_factory=fieldsFactory)
     methods:     PyutMethods = field(default_factory=methodsFactory)
 
-    def __init__(self):
-        pass
-
     def addMethod(self, newMethod: PyutMethod):
         self.methods.append(newMethod)
 

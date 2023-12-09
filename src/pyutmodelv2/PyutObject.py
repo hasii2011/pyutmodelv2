@@ -24,3 +24,4 @@ class PyutObject:
 
         self.name = name
         self.id   = next(PyutObject.idGenerator)
+

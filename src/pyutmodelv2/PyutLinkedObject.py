@@ -33,13 +33,13 @@ class PyutLinkedObject(PyutObject):
 
     parents: List[Self] = field(default_factory=parentsFactory)
 
-    def __init__(self, name: str = ""):
+    def __init__(self, **kwargs):
         """
 
         Args:
             name:  The object name
         """
-        super().__init__(name)
+        super().__init__(**kwargs)
 
     def addParent(self, parent: Self):
         """
