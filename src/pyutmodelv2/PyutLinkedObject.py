@@ -1,3 +1,4 @@
+
 from typing import Any
 from typing import List
 from typing import Self
@@ -21,6 +22,9 @@ def parentsFactory() -> List[Any]:
 
 @dataclass
 class PyutLinkedObject(PyutObject):
+    links:   PyutLinks  = field(default_factory=pyutLinksFactory)   # TODO:  This does not work
+    parents: List[Self] = field(default_factory=parentsFactory)
+
     """
     An object which can be connected to another one.
 
@@ -28,18 +32,16 @@ class PyutLinkedObject(PyutObject):
     classes that may be interconnected (classes for examples) should inherit
     this class to have all links support.
     """
-
-    links:   PyutLinks  = field(default_factory=pyutLinksFactory)
-
-    parents: List[Self] = field(default_factory=parentsFactory)
-
-    def __init__(self, **kwargs):
+    def __init__(self, name: str = ''):
         """
 
         Args:
             name:  The object name
         """
-        super().__init__(**kwargs)
+        super().__init__(name=name)
+
+        self.parents: List[Self] = []
+        self.links:   PyutLinks  = PyutLinks([])
 
     def addParent(self, parent: Self):
         """

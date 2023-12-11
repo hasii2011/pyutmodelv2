@@ -21,11 +21,13 @@ if TYPE_CHECKING:
     from pyutmodelv2.PyutNote import PyutNote
     # noinspection PyUnresolvedReferences
     from pyutmodelv2.PyutUseCase import PyutUseCase
+    # noinspection PyUnresolvedReferences
+    from pyutmodelv2.PyutSDInstance import PyutSDInstance
 
 
 # Using type aliases on purpose
-LinkSource      = Optional[Union['PyutClass', 'PyutNote']]
-LinkDestination = Optional[Union['PyutClass', 'PyutUseCase']]
+LinkSource      = Optional[Union['PyutClass', 'PyutNote',    'PyutSDInstance']]
+LinkDestination = Optional[Union['PyutClass', 'PyutUseCase', 'PyutSDInstance']]
 
 
 @dataclass

@@ -26,8 +26,8 @@ class PyutParameter(PyutObject):
         """
         super().__init__(name)
 
-        self._type:         PyutType = parameterType
-        self._defaultValue: str      = defaultValue
+        self.type:         PyutType = parameterType
+        self.defaultValue: str      = defaultValue
 
     def __str__(self) -> str:
         """
@@ -37,11 +37,11 @@ class PyutParameter(PyutObject):
         """
         s = self.name
 
-        if str(self._type.value) != "":
-            s = f'{s}: {self._type.value}'
+        if str(self.type.value) != "":
+            s = f'{s}: {self.type.value}'
 
-        if self._defaultValue != '':
-            s = f'{s} = {self._defaultValue}'
+        if self.defaultValue != '':
+            s = f'{s} = {self.defaultValue}'
 
         return s
 

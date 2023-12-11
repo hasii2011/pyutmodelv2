@@ -2,16 +2,14 @@
 from typing import List
 from typing import NewType
 
-from logging import Logger
-from logging import getLogger
-
 from dataclasses import dataclass
-from dataclasses import field
+# from dataclasses import field
+
 from pyutmodelv2.PyutModelTypes import ClassName
 from pyutmodelv2.PyutModelTypes import Implementors
 
-from pyutmodelv2.PyutClassCommon import PyutClassCommon
 from pyutmodelv2.PyutObject import PyutObject
+from pyutmodelv2.PyutClassCommon import PyutClassCommon
 
 
 def implementorsFactory() -> Implementors:
@@ -19,9 +17,9 @@ def implementorsFactory() -> Implementors:
 
 
 @dataclass
-class PyutInterface(PyutClassCommon, PyutObject):
+class PyutInterface(PyutObject, PyutClassCommon):
 
-    implementors: Implementors = field(default_factory=implementorsFactory)
+    # implementors: Implementors = field(default_factory=implementorsFactory)   # TODO: figure out dataclass
 
     def __init__(self, name: str = ''):
         """
@@ -29,15 +27,21 @@ class PyutInterface(PyutClassCommon, PyutObject):
         Args:
             name:  The interface name
         """
-        PyutObject.__init__(self, name=name)
+        super().__init__(name=name)
         PyutClassCommon.__init__(self)
-
-        self.logger: Logger = getLogger(__name__)
 
         self._implementors: Implementors = Implementors([])
 
+    @property
+    def implementors(self) -> Implementors:
+        return self._implementors
+
+    @implementors.setter
+    def implementors(self, newValue: Implementors):
+        self._implementors = newValue
+
     def addImplementor(self, newClassName: ClassName):
-        self._implementors.append(newClassName)
+        self.implementors.append(newClassName)
 
     def __repr__(self):
 

@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = 'https://github.com/hasii2011/pyutmodel'
+Repository = 'https://github.com/hasii2011/pyutmodelv2'
 
 
 [tool.setuptools.packages.find]

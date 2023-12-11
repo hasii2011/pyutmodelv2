@@ -3,6 +3,8 @@ from unittest import TestSuite
 from unittest import main as unitTestMain
 
 from pyutmodelv2.PyutLink import PyutLink
+from pyutmodelv2.PyutSDInstance import PyutSDInstance
+from pyutmodelv2.PyutSDMessage import PyutSDMessage
 from pyutmodelv2.enumerations.PyutLinkType import PyutLinkType
 
 from tests.ProjectTestBase import ProjectTestBase
@@ -33,6 +35,18 @@ class TestPyutLink(ProjectTestBase):
         actualLinkType:   PyutLinkType = pyutLink.linkType
 
         self.assertEqual(expectedLinkType, actualLinkType, 'Incorrect  valid legacy type support')
+
+    def testLinkAssignment(self):
+
+        sourceInstance:      PyutSDInstance = PyutSDInstance(instanceName='SourceInstance')
+        destinationInstance: PyutSDInstance = PyutSDInstance(instanceName='DestinationInstance')
+
+        message: PyutSDMessage = PyutSDMessage(message='callback')
+        message.source      = sourceInstance
+        message.destination = destinationInstance
+
+        checkSource: PyutSDInstance = message.source
+        self.assertIsNotNone(checkSource, 'Did we pass')
 
 
 def suite() -> TestSuite:
