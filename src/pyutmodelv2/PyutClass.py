@@ -1,7 +1,4 @@
 
-from logging import Logger
-from logging import getLogger
-
 from dataclasses import dataclass
 
 from pyutmodelv2.PyutClassCommon import PyutClassCommon
@@ -40,7 +37,6 @@ class PyutClass(PyutLinkedObject, PyutClassCommon):
 
     def __init__(self, name: str = ''):
 
-        self.logger: Logger = getLogger(__name__)
         super().__init__(name=name)
         PyutClassCommon.__init__(self)
 

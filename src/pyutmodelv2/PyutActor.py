@@ -1,7 +1,10 @@
 
+from dataclasses import dataclass
+
 from pyutmodelv2.PyutLinkedObject import PyutLinkedObject
 
 
+@dataclass
 class PyutActor(PyutLinkedObject):
     """
     Represents a Use Case actor (data layer).

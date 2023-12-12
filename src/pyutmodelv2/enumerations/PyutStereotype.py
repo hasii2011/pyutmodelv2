@@ -1,6 +1,8 @@
 
 from enum import Enum
 
+DEBUG_STEREOTYPE: bool = False
+
 
 class PyutStereotype(Enum):
     """
@@ -64,7 +66,8 @@ class PyutStereotype(Enum):
                 case _:
                     stereotype = PyutStereotype(canonicalStr)
         except (ValueError, Exception):
-            print(f'`{canonicalStr}` coerced to {PyutStereotype.NO_STEREOTYPE}')
+            if DEBUG_STEREOTYPE is True:
+                print(f'`{canonicalStr}` coerced to {PyutStereotype.NO_STEREOTYPE}')
             stereotype = PyutStereotype.NO_STEREOTYPE
 
         return stereotype

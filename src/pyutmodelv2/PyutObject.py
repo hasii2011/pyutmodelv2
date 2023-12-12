@@ -20,7 +20,5 @@ class PyutObject:
     id:       int = 0
     fileName: str = ''
 
-    def __init__(self, name: str = ''):
-
-        self.name = name
+    def __post_init__(self):
         self.id   = next(PyutObject.idGenerator)

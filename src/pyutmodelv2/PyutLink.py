@@ -1,7 +1,8 @@
 
 from typing import List
 from typing import NewType
-from typing import Optional
+from typing import cast
+
 from typing import Union
 from typing import TYPE_CHECKING
 
@@ -26,8 +27,11 @@ if TYPE_CHECKING:
 
 
 # Using type aliases on purpose
-LinkSource      = Optional[Union['PyutClass', 'PyutNote',    'PyutSDInstance']]
-LinkDestination = Optional[Union['PyutClass', 'PyutUseCase', 'PyutSDInstance']]
+LinkSource      = Union['PyutClass', 'PyutNote',    'PyutSDInstance']
+LinkDestination = Union['PyutClass', 'PyutUseCase', 'PyutSDInstance']
+
+NONE_LINK_SOURCE:      LinkSource      = cast(LinkSource, None)
+NONE_LINK_DESTINATION: LinkDestination = cast(LinkDestination, None)
 
 
 @dataclass
@@ -50,16 +54,16 @@ class PyutLink(PyutObject):
     destinationCardinality: str  = ''
     bidirectional:          bool = False
 
-    source:                 LinkSource      = None
-    destination:            LinkDestination = None
+    source:                 LinkSource      = NONE_LINK_SOURCE
+    destination:            LinkDestination = NONE_LINK_DESTINATION
 
     # noinspection PyUnresolvedReferences
     def __init__(self, name="", linkType: PyutLinkType = PyutLinkType.INHERITANCE,
                  cardinalitySource:       str  = "",
                  cardinalityDestination:  str  = "",
                  bidirectional: bool = False,
-                 source:        LinkSource = None,
-                 destination:   LinkDestination = None):
+                 source:        LinkSource      = NONE_LINK_SOURCE,
+                 destination:   LinkDestination = NONE_LINK_DESTINATION):
         """
         Args:
             name:                   The link name

@@ -2,12 +2,15 @@
 from typing import List
 from typing import NewType
 
+from dataclasses import dataclass
+
 from pyutmodelv2.PyutParameter import PyutParameter
 from pyutmodelv2.PyutType import PyutType
 
 from pyutmodelv2.enumerations.PyutVisibility import PyutVisibility
 
 
+@dataclass
 class PyutField(PyutParameter):
 
     visibility: PyutVisibility = PyutVisibility.PRIVATE

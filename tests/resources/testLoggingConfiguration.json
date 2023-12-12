@@ -29,14 +29,6 @@
         "pyutmodelv2": {
             "level":     "WARNING",
             "propagate": "False"
-        },
-        "tests.pyutmodelv2": {
-            "level":     "INFO",
-            "propagate": "False"
-        },
-        "codeallybasic.UnitTestBase": {
-            "level":     "INFO",
-            "propagate": "False"
         }
     }
 }

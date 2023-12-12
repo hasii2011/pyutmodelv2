@@ -22,9 +22,6 @@ def parentsFactory() -> List[Any]:
 
 @dataclass
 class PyutLinkedObject(PyutObject):
-    links:   PyutLinks  = field(default_factory=pyutLinksFactory)   # TODO:  This does not work
-    parents: List[Self] = field(default_factory=parentsFactory)
-
     """
     An object which can be connected to another one.
 
@@ -32,16 +29,9 @@ class PyutLinkedObject(PyutObject):
     classes that may be interconnected (classes for examples) should inherit
     this class to have all links support.
     """
-    def __init__(self, name: str = ''):
-        """
 
-        Args:
-            name:  The object name
-        """
-        super().__init__(name=name)
-
-        self.parents: List[Self] = []
-        self.links:   PyutLinks  = PyutLinks([])
+    links:   PyutLinks  = field(default_factory=pyutLinksFactory, hash=False)
+    parents: List[Self] = field(default_factory=parentsFactory,   hash=False)
 
     def addParent(self, parent: Self):
         """
