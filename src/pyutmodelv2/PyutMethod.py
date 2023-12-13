@@ -52,19 +52,6 @@ class PyutMethod(PyutObject):
     isProperty: bool            = False
     sourceCode: SourceCode      = field(default_factory=sourceCodeFactory)
 
-    def __init__(self, name='', visibility=PyutVisibility.PUBLIC, returnType: PyutType = PyutType('')):
-        """
-
-        Args:
-            name:       The method name
-            visibility: Its visibility public, private, protected
-            returnType:  Its return value
-        """
-        super().__init__(name)
-
-        self.visibility = visibility
-        self.returnType = returnType
-
     def addParameter(self, parameter: PyutParameter):
         """
         Add a parameter.

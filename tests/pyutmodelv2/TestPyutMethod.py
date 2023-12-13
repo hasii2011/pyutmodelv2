@@ -22,6 +22,15 @@ class TestPyutMethod(ProjectTestBase):
     def tearDown(self):
         pass
 
+    def testUpdateEmptyParameters(self):
+
+        pyutMethod:    PyutMethod    = PyutMethod(name='MethodToBuildUp')
+        pyutParameter: PyutParameter = PyutParameter(name='InitialParameter')
+
+        pyutMethod.addParameter(parameter=pyutParameter)
+
+        self.assertEqual(1, len(pyutMethod.parameters), "There can be only one")
+
     def testStringMethodWithParametersRepresentation(self):
 
         pyutMethod: PyutMethod = self._pyutMethod
@@ -98,8 +107,8 @@ class TestPyutMethod(ProjectTestBase):
 
     def _makeParameters(self) -> PyutParameters:
 
-        pyutParameter1: PyutParameter  = PyutParameter(name='intParam', parameterType=PyutType("int"), defaultValue='0')
-        pyutParameter2: PyutParameter  = PyutParameter(name='floatParam', parameterType=PyutType("float"), defaultValue='32.0')
+        pyutParameter1: PyutParameter  = PyutParameter(name='intParam', type=PyutType("int"), defaultValue='0')
+        pyutParameter2: PyutParameter  = PyutParameter(name='floatParam', type=PyutType("float"), defaultValue='32.0')
         parameters:     PyutParameters = PyutParameters([pyutParameter1, pyutParameter2])
 
         return parameters

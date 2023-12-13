@@ -36,7 +36,7 @@ class TestPyutField(ProjectTestBase):
         originalFields: List[PyutField] = []
         for x in range(len(TestPyutField.fieldNames)):
             field: PyutField = PyutField(name=TestPyutField.fieldNames[x],
-                                         fieldType=TestPyutField.fieldTypes[x],
+                                         type=TestPyutField.fieldTypes[x],
                                          defaultValue=TestPyutField.fieldValues[x],
                                          visibility=TestPyutField.fieldVisibilities[x]
                                          )
@@ -53,7 +53,7 @@ class TestPyutField(ProjectTestBase):
     def testBasicStringRepresentation(self):
 
         basicField: PyutField = PyutField(name='basicField',
-                                          fieldType=PyutType('int'),
+                                          type=PyutType('int'),
                                           defaultValue='42',
                                           visibility=PyutVisibility.PUBLIC)
 
@@ -65,7 +65,7 @@ class TestPyutField(ProjectTestBase):
     def testNoDefaultValueStringRepresentation(self):
 
         noDefaultValueField: PyutField = PyutField(name='basicField',
-                                                   fieldType=PyutType('int'),
+                                                   type=PyutType('int'),
                                                    visibility=PyutVisibility.PRIVATE)
 
         expectedValue: str = '-basicField: int'

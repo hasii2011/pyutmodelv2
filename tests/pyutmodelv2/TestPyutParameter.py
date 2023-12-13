@@ -18,7 +18,7 @@ class TestPyutParameter(ProjectTestBase):
         super().tearDown()
 
     def testFullString(self):
-        pyutParameter: PyutParameter = PyutParameter(name='Ozzee', parameterType=PyutType('float'), defaultValue='1.0')
+        pyutParameter: PyutParameter = PyutParameter(name='Ozzee', type=PyutType('float'), defaultValue='1.0')
 
         expectedValue: str = 'Ozzee: float = 1.0'
         actualValue:   str = pyutParameter.__str__()
@@ -26,14 +26,14 @@ class TestPyutParameter(ProjectTestBase):
         self.assertEqual(expectedValue, actualValue, 'Full string representation has changed')
 
     def testIndividualAttributes(self):
-        pyutParameter: PyutParameter = PyutParameter(name='Ozzee', parameterType=PyutType('float'), defaultValue='1.0')
+        pyutParameter: PyutParameter = PyutParameter(name='Ozzee', type=PyutType('float'), defaultValue='1.0')
 
         self.assertEqual('Ozzee', pyutParameter.name, 'Parameter name not correct')
         self.assertEqual('1.0', pyutParameter.defaultValue, 'default value not set correctly')
         self.assertEqual(PyutType('float'), pyutParameter.type, 'Type not set correctly')
 
     def testNoDefaultValue(self):
-        pyutParameter: PyutParameter = PyutParameter(name='Ozzee', parameterType=PyutType('float'))
+        pyutParameter: PyutParameter = PyutParameter(name='Ozzee', type=PyutType('float'))
 
         expectedValue: str = 'Ozzee: float'
         actualValue:   str = pyutParameter.__str__()
@@ -51,7 +51,7 @@ class TestPyutParameter(ProjectTestBase):
 
     def testDataClassRepr(self):
 
-        pyutParameter: PyutParameter = PyutParameter(name='Ozzee', parameterType=PyutType('float'), defaultValue='1.0')
+        pyutParameter: PyutParameter = PyutParameter(name='Ozzee', type=PyutType('float'), defaultValue='1.0')
 
         expectedValue: str = 'Ozzee: float = 1.0'
         actualValue:   str = pyutParameter.__repr__()

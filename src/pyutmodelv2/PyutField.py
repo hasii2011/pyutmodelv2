@@ -12,8 +12,6 @@ from pyutmodelv2.enumerations.PyutVisibility import PyutVisibility
 
 @dataclass
 class PyutField(PyutParameter):
-
-    visibility: PyutVisibility = PyutVisibility.PRIVATE
     """
     A class field
 
@@ -27,18 +25,7 @@ class PyutField(PyutParameter):
         ozzeeField = PyutField('Ozzee', 'str', 'GatoMalo', PyutVisibilityEnum.Private)
     """
 
-    def __init__(self, name: str = "", fieldType: PyutType = PyutType(''), defaultValue: str = '', visibility: PyutVisibility = PyutVisibility.PRIVATE):
-        """
-
-        Args:
-            name:           The name of the field
-            fieldType:      The field type
-            defaultValue:   The field default value if any
-            visibility:     The field visibility (private, public, protected)
-        """
-        super().__init__(name, fieldType, defaultValue)
-
-        self.visibility = visibility
+    visibility: PyutVisibility = PyutVisibility.PRIVATE
 
     def __str__(self):
         """

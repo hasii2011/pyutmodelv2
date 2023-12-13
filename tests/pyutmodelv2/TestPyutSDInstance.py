@@ -2,8 +2,8 @@
 from unittest import TestSuite
 from unittest import main as unitTestMain
 
-from pyutmodelv2.PyutLink import NONE_LINK_SOURCE
 from pyutmodelv2.PyutSDInstance import PyutSDInstance
+
 from tests.ProjectTestBase import ProjectTestBase
 
 

@@ -1,6 +1,4 @@
 
-from typing import ClassVar
-
 from dataclasses import dataclass
 
 from pyutmodelv2.PyutObject import PyutObject
@@ -11,23 +9,10 @@ from pyutmodelv2.PyutType import PyutType
 @dataclass
 class PyutParameter(PyutObject):
 
-    DEFAULT_PARAMETER_NAME: ClassVar = 'parameter'
+    # DEFAULT_PARAMETER_NAME: ClassVar = 'parameter'
 
     type:         PyutType = PyutType("")
     defaultValue: str      = ''
-
-    def __init__(self, name: str = DEFAULT_PARAMETER_NAME, parameterType: PyutType = PyutType(""), defaultValue: str = ''):
-        """
-
-        Args:
-            name:          The parameter name
-            parameterType: The parameter type
-
-        """
-        super().__init__(name)
-
-        self.type:         PyutType = parameterType
-        self.defaultValue: str      = defaultValue
 
     def __str__(self) -> str:
         """
