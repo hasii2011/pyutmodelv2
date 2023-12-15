@@ -4,8 +4,13 @@ from unittest import main as unitTestMain
 
 from pyutmodelv2.PyutClass import PyutClass
 from pyutmodelv2.PyutLinkedObject import PyutLinkedObject
+
+from pyutmodelv2.PyutObject import PyutObject
+from pyutmodelv2.PyutObject import infiniteSequence
+
 from pyutmodelv2.enumerations.PyutDisplayParameters import PyutDisplayParameters
 from pyutmodelv2.enumerations.PyutStereotype import PyutStereotype
+
 from tests.ProjectTestBase import ProjectTestBase
 
 # import the class you want to test here
@@ -35,22 +40,39 @@ class TestPyutClass(ProjectTestBase):
         self.assertTrue(len(pyutClass.parents) == 0, 'No parents at instantiation')
         self.assertTrue(len(pyutClass.links) == 0, 'No links at instantiation')
 
-    def testBasicProperties(self):
-        pyutClass: PyutClass = PyutClass(name='CheckAttributes')
+    def testBasicPropertiesDisplayParameters(self):
 
+        pyutClass: PyutClass = PyutClass(name='CheckDisplayProperties')
         self.assertEqual(PyutDisplayParameters.UNSPECIFIED, pyutClass.displayParameters)
+
+    def testBasicPropertiesStereotype(self):
+
+        pyutClass: PyutClass = PyutClass(name='CheckStereotype')
         self.assertEqual(PyutStereotype.NO_STEREOTYPE, pyutClass.stereotype)
+
+    def testBasicPropertiesDisplayStereotype(self):
+
+        pyutClass: PyutClass = PyutClass(name='CheckDisplayStereotype')
         self.assertEqual(True, pyutClass.displayStereoType)
 
-    def testPyutObjectProperties(self):
+    def testBasicPropertiesInterfaces(self):
 
+        pyutClass: PyutClass = PyutClass(name='CheckInterfaces')
+        self.assertTrue(len(pyutClass.interfaces) == 0, 'Where is my top level attribute`')
+
+    def testIdIncrements(self):
+
+        PyutObject.idGenerator = infiniteSequence()
         fakeClass: PyutClass = PyutClass(name='FakeClass')
 
         self.assertEqual('FakeClass', fakeClass.name, '')
         pyutClass: PyutClass = PyutClass(name='CheckPyutObject')
 
-        self.assertTrue(pyutClass.id != 0)
+        self.assertTrue(pyutClass.id == 1)
         self.assertTrue(pyutClass.fileName == '')
+
+        pyutClass = PyutClass(name='BumpId')
+        self.assertTrue(pyutClass.id == 2)
 
     def testLinkedObject(self):
 

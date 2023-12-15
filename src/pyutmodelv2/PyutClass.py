@@ -1,10 +1,18 @@
 
 from dataclasses import dataclass
+from dataclasses import field
 
 from pyutmodelv2.PyutClassCommon import PyutClassCommon
+from pyutmodelv2.PyutInterface import PyutInterface
+from pyutmodelv2.PyutInterface import PyutInterfaces
 from pyutmodelv2.PyutLinkedObject import PyutLinkedObject
+
 from pyutmodelv2.enumerations.PyutDisplayParameters import PyutDisplayParameters
 from pyutmodelv2.enumerations.PyutStereotype import PyutStereotype
+
+
+def pyutInterfacesFactory() -> PyutInterfaces:
+    return PyutInterfaces([])
 
 
 @dataclass
@@ -35,10 +43,14 @@ class PyutClass(PyutLinkedObject, PyutClassCommon):
     stereotype:        PyutStereotype        = PyutStereotype.NO_STEREOTYPE
     displayStereoType: bool                  = True
 
-    def __init__(self, name: str = ''):
+    interfaces:        PyutInterfaces        = field(default_factory=pyutInterfacesFactory)
 
-        super().__init__(name=name)
+    def __post_init__(self):
+        super().__post_init__()
         PyutClassCommon.__init__(self)
+
+    def addInterface(self, pyutInterface: PyutInterface):
+        self.interfaces.append(pyutInterface)
 
     def __getstate__(self):
         """
