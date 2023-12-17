@@ -3,7 +3,6 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/hasii2011/pyutmodelv2/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/hasii2011/pyutmodelv2/tree/master)
 [![PyPI version](https://badge.fury.io/py/pyutmodelv2.svg)](https://badge.fury.io/py/pyutmodelv2)
-[![PyPI version](https://badge.fury.io/py/pyutmodelv2.svg)](https://badge.fury.io/py/pyutmodelv2)
 
 𝓟 𝓨 𝓤 𝓣 stands for Python UML Tool. This is the second version the external data model for Pyut
 that allows for external plugin development.  This version relies on Python's data classes, thus 
