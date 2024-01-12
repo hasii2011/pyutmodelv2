@@ -6,6 +6,7 @@ from pyutmodelv2.PyutClassCommon import PyutClassCommon
 from pyutmodelv2.PyutInterface import PyutInterface
 from pyutmodelv2.PyutInterface import PyutInterfaces
 from pyutmodelv2.PyutLinkedObject import PyutLinkedObject
+from pyutmodelv2.enumerations.PyutDisplayMethods import PyutDisplayMethods
 
 from pyutmodelv2.enumerations.PyutDisplayParameters import PyutDisplayParameters
 from pyutmodelv2.enumerations.PyutStereotype import PyutStereotype
@@ -43,7 +44,9 @@ class PyutClass(PyutLinkedObject, PyutClassCommon):
     stereotype:        PyutStereotype        = PyutStereotype.NO_STEREOTYPE
     displayStereoType: bool                  = True
 
-    interfaces:        PyutInterfaces        = field(default_factory=pyutInterfacesFactory)
+    displayConstructor:   PyutDisplayMethods   = PyutDisplayMethods.UNSPECIFIED
+    displayDunderMethods: PyutDisplayMethods   = PyutDisplayMethods.UNSPECIFIED
+    interfaces:           PyutInterfaces       = field(default_factory=pyutInterfacesFactory)
 
     def __post_init__(self):
         super().__post_init__()
