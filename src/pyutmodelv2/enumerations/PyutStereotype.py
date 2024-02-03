@@ -35,6 +35,7 @@ class PyutStereotype(Enum):
     THREAD               = 'thread'
     TYPE                 = 'type'
     UTILITY              = 'utility'
+    ENUMERATION          = 'enumeration'
     NO_STEREOTYPE        = 'noStereotype'
 
     @classmethod
