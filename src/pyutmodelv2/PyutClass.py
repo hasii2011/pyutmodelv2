@@ -1,4 +1,8 @@
 
+from typing import Dict
+from typing import List
+from typing import NewType
+
 from dataclasses import dataclass
 from dataclasses import field
 
@@ -73,3 +77,9 @@ class PyutClass(PyutLinkedObject, PyutClassCommon):
 
     def __repr__(self):
         return self.__str__()
+
+
+PyutClassName = NewType('PyutClassName',  str)
+
+PyutClassList  = NewType('PyutClassList',    List[PyutClass])
+PyutClassIndex = NewType('PyutClassIndex', Dict[PyutClassName, PyutClass])
