@@ -2,6 +2,8 @@
 from unittest import TestSuite
 from unittest import main as unitTestMain
 
+from copy import deepcopy
+
 from pyutmodelv2.PyutInterface import PyutInterface
 
 from tests.ProjectTestBase import ProjectTestBase
@@ -30,6 +32,19 @@ class TestPyutInterface(ProjectTestBase):
         pyutInterface: PyutInterface = PyutInterface(name='OzzeeInterface')
 
         self.assertIsNotNone(pyutInterface.implementors, 'Ensure we can access this property')
+
+    def testEquality(self):
+        pyutInterface: PyutInterface = PyutInterface(name='OzzeeInterface')
+        doppleGanger:  PyutInterface = deepcopy(pyutInterface)
+
+        self.assertTrue(pyutInterface == doppleGanger, 'Should be the same one')
+
+    def testNotEqual(self):
+
+        pyutInterface1: PyutInterface = PyutInterface(name='OzzeeInterface')
+        pyutInterface2: PyutInterface = PyutInterface(name='OzzeeInterface')
+
+        self.assertFalse(pyutInterface1 == pyutInterface2, 'IDs should not match')
 
 
 def suite() -> TestSuite:

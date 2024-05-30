@@ -43,6 +43,27 @@ class PyutInterface(PyutObject, PyutClassCommon):
     def addImplementor(self, newClassName: ClassName):
         self.implementors.append(newClassName)
 
+    def __hash__(self) -> int:
+        return hash((self.name, self.id))
+
+    def __eq__(self, other) -> bool:
+        """
+
+             Args:
+                 other:
+
+             Returns:  True if the defined PointNodes are 'functionally' equal
+        """
+        ans: bool = False
+
+        if isinstance(other, PyutInterface) is False:
+            pass
+        else:
+            if self.name == other.name and self.id == other.id :
+                ans = True
+
+        return ans
+
     def __repr__(self):
 
         methodsStr = ''
