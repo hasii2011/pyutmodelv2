@@ -1,4 +1,5 @@
 
+from typing import Dict
 from typing import List
 from typing import NewType
 
@@ -70,7 +71,8 @@ class PyutInterface(PyutObject, PyutClassCommon):
         for method in self.methods:
             methodsStr = f'{methodsStr} {method} '
 
-        return f'PyutInterface- - {self.name} {methodsStr}'
+        return f'PyutInterface {self.name} {methodsStr}'
 
 
-PyutInterfaces = NewType('PyutInterfaces', List[PyutInterface])
+PyutInterfaces     = NewType('PyutInterfaces',     List[PyutInterface])
+PyutInterfacesDict = NewType('PyutInterfacesDict', Dict[str, PyutInterface])
