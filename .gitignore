@@ -4,7 +4,8 @@ __pycache__/
 /html/
 build/
 dist/
-pyutmodelv2.egg-info/
+/src/pyutmodelv2.egg-info/
 /pyenv-3.11.5/
+/pyenv-3.12.7/
 .envrc
 .python-version
