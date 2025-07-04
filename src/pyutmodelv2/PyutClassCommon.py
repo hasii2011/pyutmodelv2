@@ -7,6 +7,7 @@ from pyutmodelv2.PyutField import PyutFields
 
 from pyutmodelv2.PyutMethod import PyutMethod
 from pyutmodelv2.PyutMethod import PyutMethods
+from pyutmodelv2.enumerations.PyutStereotype import PyutStereotype
 
 
 def methodsFactory() -> PyutMethods:
@@ -21,9 +22,12 @@ def fieldsFactory() -> PyutFields:
 class PyutClassCommon:
 
     description: str = ''
-
     showMethods: bool = True
     showFields:  bool = True
+
+    displayStereoType: bool = True
+
+    stereotype: PyutStereotype = PyutStereotype.NO_STEREOTYPE
 
     fields:      PyutFields  = field(default_factory=fieldsFactory)
     methods:     PyutMethods = field(default_factory=methodsFactory)

@@ -20,8 +20,6 @@ def implementorsFactory() -> Implementors:
 @dataclass
 class PyutInterface(PyutObject, PyutClassCommon):
 
-    # implementors: Implementors = field(default_factory=implementorsFactory)   # TODO: figure out dataclass
-
     def __init__(self, name: str = ''):
         """
 

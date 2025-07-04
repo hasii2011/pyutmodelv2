@@ -44,13 +44,10 @@ class PyutClass(PyutLinkedObject, PyutClassCommon):
     Correct multiple inheritance:
         https://stackoverflow.com/questions/59986413/achieving-multiple-inheritance-using-python-dataclasses
     """
-    displayParameters: PyutDisplayParameters = PyutDisplayParameters.UNSPECIFIED
-    stereotype:        PyutStereotype        = PyutStereotype.NO_STEREOTYPE
-    displayStereoType: bool                  = True
-
-    displayConstructor:   PyutDisplayMethods   = PyutDisplayMethods.UNSPECIFIED
-    displayDunderMethods: PyutDisplayMethods   = PyutDisplayMethods.UNSPECIFIED
-    interfaces:           PyutInterfaces       = field(default_factory=pyutInterfacesFactory)
+    displayParameters:    PyutDisplayParameters = PyutDisplayParameters.UNSPECIFIED
+    displayConstructor:   PyutDisplayMethods    = PyutDisplayMethods.UNSPECIFIED
+    displayDunderMethods: PyutDisplayMethods    = PyutDisplayMethods.UNSPECIFIED
+    interfaces:           PyutInterfaces        = field(default_factory=pyutInterfacesFactory)
 
     def __post_init__(self):
         super().__post_init__()

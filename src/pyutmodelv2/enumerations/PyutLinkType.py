@@ -13,6 +13,7 @@ class PyutLinkType(Enum):
     INTERFACE   = 4
     NOTELINK    = 5
     SD_MESSAGE  = 6
+    LOLLIPOP    = 7
 
     def __str__(self):
         return str(self.name)
