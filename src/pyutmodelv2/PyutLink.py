@@ -16,18 +16,15 @@ from pyutmodelv2.PyutObject import PyutObject
 from pyutmodelv2.enumerations.PyutLinkType import PyutLinkType
 
 if TYPE_CHECKING:
-    # noinspection PyUnresolvedReferences
     from pyutmodelv2.PyutClass import PyutClass
-    # noinspection PyUnresolvedReferences
     from pyutmodelv2.PyutNote import PyutNote
-    # noinspection PyUnresolvedReferences
     from pyutmodelv2.PyutUseCase import PyutUseCase
-    # noinspection PyUnresolvedReferences
     from pyutmodelv2.PyutSDInstance import PyutSDInstance
+    from pyutmodelv2.PyutActor import PyutActor
 
 
 # Using type aliases on purpose
-LinkSource      = Union['PyutClass', 'PyutNote',    'PyutSDInstance']
+LinkSource      = Union['PyutClass', 'PyutNote',    'PyutSDInstance', 'PyutActor']
 LinkDestination = Union['PyutClass', 'PyutUseCase', 'PyutSDInstance']
 
 NONE_LINK_SOURCE:      LinkSource      = cast(LinkSource, None)
